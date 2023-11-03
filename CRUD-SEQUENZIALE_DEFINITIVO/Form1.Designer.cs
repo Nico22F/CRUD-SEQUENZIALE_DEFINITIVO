@@ -34,6 +34,10 @@
             this.resetta_file = new System.Windows.Forms.Button();
             this.apri_file = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.eliminazione_logica = new System.Windows.Forms.CheckBox();
+            this.eliminazione_fisica = new System.Windows.Forms.CheckBox();
+            this.annulla = new System.Windows.Forms.Button();
+            this.titolo_elimina = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // aggiungi_prodotto
@@ -96,11 +100,59 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "CRUD CON ACCESSO SEQUENZIALE22F";
             // 
+            // eliminazione_logica
+            // 
+            this.eliminazione_logica.AutoSize = true;
+            this.eliminazione_logica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminazione_logica.Location = new System.Drawing.Point(82, 168);
+            this.eliminazione_logica.Name = "eliminazione_logica";
+            this.eliminazione_logica.Size = new System.Drawing.Size(234, 29);
+            this.eliminazione_logica.TabIndex = 6;
+            this.eliminazione_logica.Text = "Cancellazione logica";
+            this.eliminazione_logica.UseVisualStyleBackColor = true;
+            this.eliminazione_logica.CheckedChanged += new System.EventHandler(this.eliminazione_logica_CheckedChanged);
+            // 
+            // eliminazione_fisica
+            // 
+            this.eliminazione_fisica.AutoSize = true;
+            this.eliminazione_fisica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminazione_fisica.Location = new System.Drawing.Point(82, 241);
+            this.eliminazione_fisica.Name = "eliminazione_fisica";
+            this.eliminazione_fisica.Size = new System.Drawing.Size(227, 29);
+            this.eliminazione_fisica.TabIndex = 7;
+            this.eliminazione_fisica.Text = "Cancellazione fisica";
+            this.eliminazione_fisica.UseVisualStyleBackColor = true;
+            this.eliminazione_fisica.CheckedChanged += new System.EventHandler(this.eliminazione_fisica_CheckedChanged);
+            // 
+            // annulla
+            // 
+            this.annulla.Location = new System.Drawing.Point(131, 297);
+            this.annulla.Name = "annulla";
+            this.annulla.Size = new System.Drawing.Size(140, 78);
+            this.annulla.TabIndex = 8;
+            this.annulla.Text = "ANNULLA CANCELLAZIONE";
+            this.annulla.UseVisualStyleBackColor = true;
+            this.annulla.Click += new System.EventHandler(this.annulla_Click);
+            // 
+            // titolo_elimina
+            // 
+            this.titolo_elimina.AutoSize = true;
+            this.titolo_elimina.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titolo_elimina.Location = new System.Drawing.Point(11, 14);
+            this.titolo_elimina.Name = "titolo_elimina";
+            this.titolo_elimina.Size = new System.Drawing.Size(355, 29);
+            this.titolo_elimina.TabIndex = 9;
+            this.titolo_elimina.Text = "Scegli il tipo di cancellazione";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 597);
+            this.Controls.Add(this.titolo_elimina);
+            this.Controls.Add(this.annulla);
+            this.Controls.Add(this.eliminazione_fisica);
+            this.Controls.Add(this.eliminazione_logica);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.apri_file);
             this.Controls.Add(this.resetta_file);
@@ -123,6 +175,10 @@
         private System.Windows.Forms.Button resetta_file;
         private System.Windows.Forms.Button apri_file;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox eliminazione_logica;
+        private System.Windows.Forms.CheckBox eliminazione_fisica;
+        private System.Windows.Forms.Button annulla;
+        private System.Windows.Forms.Label titolo_elimina;
     }
 }
 
