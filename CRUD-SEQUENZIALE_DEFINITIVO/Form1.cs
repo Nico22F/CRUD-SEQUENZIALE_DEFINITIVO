@@ -59,6 +59,8 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
                 bw.Write(strInByte);
             }
 
+            dim = 0;
+
             file.Close();
             bw.Close();
         }
@@ -74,8 +76,6 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             byte[] strInByte = Encoding.Default.GetBytes(riga);
             bw.BaseStream.Seek((posizione) * size, SeekOrigin.Begin);
             bw.Write(strInByte);
-
-            counter_riga++;
 
             file.Close();
             bw.Close();
@@ -159,7 +159,7 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
 
                 // aggiungo all'array il nome del prodotto se non è nullo (@)
 
-                if (nomeProdotto!="@")
+                if (nomeProdotto[0]!='@')
                 {
                     nomiprodotti[dim] = nomeProdotto;
                     dim++;
@@ -186,6 +186,89 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             dim = 0;
         }
 
+        // cancellazione logica
+
+        public void CancellazioneLogica(int posizione)
+        {
+            FileStream file = new FileStream("./file_crud.dat", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            BinaryWriter bw = new BinaryWriter(file);
+            BinaryReader br = new BinaryReader(file);
+
+            // copio la riga e aggiungo una @ davanti alla riga così da renderlo eliminato
+
+            br.BaseStream.Seek((posizione) * size, 0);
+
+            //nome prodotto
+            byte[] bit = br.ReadBytes(32);
+            string nomeProdotto = Encoding.ASCII.GetString(bit, 0, bit.Length).Trim();
+
+            // prezzo prodotto
+            bit = br.ReadBytes(32);
+            string PrezzoProdotto = Encoding.ASCII.GetString(bit, 0, bit.Length).Trim();
+
+
+            // riscrivo la riga
+            string rigaeliminata =$"@{nomeProdotto.PadRight(32)}@{PrezzoProdotto.PadRight(32)}";
+            byte[] strInByte = Encoding.Default.GetBytes(rigaeliminata);
+            bw.BaseStream.Seek((posizione) * size, SeekOrigin.Begin);
+            bw.Write(strInByte);
+           
+
+            file.Close();
+            bw.Close();
+            br.Close();
+
+            // cancellazione nell'array
+
+            nomiprodotti[posizione] = $"@{nomiprodotti[posizione]}";
+
+        }
+
+        // cancellazione fisica
+
+        public void CancellazioneFisica(int posizione)
+        {
+            // cancellazione fisica nell'array
+
+            for (int j = posizione, a = j + 1; j < dim; j++, a++)
+            {
+                nomiprodotti[j]= nomiprodotti[a];
+                
+            }
+            
+            // cancellazione fisica nel file
+
+            FileStream file = new FileStream("./file_crud.dat", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            BinaryWriter bw = new BinaryWriter(file);
+            BinaryReader br = new BinaryReader(file);
+
+            // nome prodotto
+
+            string riga="";
+           
+            for (int j = posizione, a = j + 1; j < dim; j++, a++)
+            {
+                // posizionamento
+
+                br.BaseStream.Seek((a) * size, 0);
+                byte[] bit = br.ReadBytes(64);
+                riga = Encoding.ASCII.GetString(bit, 0, bit.Length);
+
+                // scambio righe
+
+                bw.BaseStream.Seek((j) * size, SeekOrigin.Begin); // riga2 con riga 1
+                byte[] strInByte = Encoding.Default.GetBytes(riga);
+                bw.Write(strInByte);
+                
+            }
+            dim--;
+
+            file.Close();
+            bw.Close();
+            br.Close();
+        }
+
+
         // array che conterrà i nomi e le posizioni
 
         public string[] nomiprodotti = new string[100];
@@ -193,7 +276,6 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
        
         // variabili pubbliche
 
-        public int counter_riga = 1;
         const int size = 64;
 
 
@@ -233,11 +315,11 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
                 {
                     // se non da nessun errore, dim (posizione) aumenta e viene aggiunto il prodotto al file
 
-                    dim++;
-
                     // aggiunta del prodotto su file
 
-                    AggiungiProdotto((string)input_aggiungiprodotto, nome_temporaneo, counter_riga-1);
+                    AggiungiProdotto((string)input_aggiungiprodotto, nome_temporaneo, dim);
+
+                    dim++;
                 }
             }
         }
@@ -345,13 +427,103 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
         // CANCELLAZIONE LOGICA
         private void eliminazione_logica_CheckedChanged(object sender, EventArgs e)
         {
+            // rendo visibili alcuni elementi
 
+            aggiungi_prodotto.Visible = true;
+            modifica_prodotto.Visible = true;
+            elimina_prodotto.Visible = true;
+            resetta_file.Visible = true;
+            apri_file.Visible = true;
+
+            // rendo invisibile le due scelte di cancellazione
+
+            eliminazione_fisica.Visible = false;
+            eliminazione_logica.Visible = false;
+            annulla.Visible = false;
+            titolo_elimina.Visible = false;
+
+            // input prodotto da eliminare
+
+            string titolo_input = "Eliminazione Prodotto - NOME", esempio = "nome prodotto", frase = "Inserisci il nome del prodotto che vuoi eliminare";
+            object input_eliminaprodotto = Interaction.InputBox(frase, titolo_input, esempio);
+            bool errore = true;
+
+            if ((string)input_eliminaprodotto == "") // user esce o lascia il campo vuoto
+            {
+                MessageBox.Show("Errore nell'eliminazione del prodotto", "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else // se inserisce input "corretto"
+            {
+                for (int i = 0; i < dim; i++) // cerca il nome del prodotto nell'array
+                {
+                    if ((string)input_eliminaprodotto == nomiprodotti[i]) // prodotto trovato
+                    {
+                        CancellazioneLogica(i);
+                        errore = false;
+                        break;
+                    }
+                }
+
+                // se non trova nessun nome (input errato) allora lo segnala all'utente
+
+                if (errore == true)
+                {
+                    MessageBox.Show("Errore nell'eliminazione del prodotto. Nome prodotto non esistente", "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
         }
 
         // CANCELLAZIONE FISICA 
         private void eliminazione_fisica_CheckedChanged(object sender, EventArgs e)
         {
+            // rendo visibili alcuni elementi
 
+            aggiungi_prodotto.Visible = true;
+            modifica_prodotto.Visible = true;
+            elimina_prodotto.Visible = true;
+            resetta_file.Visible = true;
+            apri_file.Visible = true;
+
+            // rendo invisibile le due scelte di cancellazione
+
+            eliminazione_fisica.Visible = false;
+            eliminazione_logica.Visible = false;
+            annulla.Visible = false;
+            titolo_elimina.Visible = false;
+
+            // input prodotto da eliminare
+
+            string titolo_input = "Eliminazione Prodotto - NOME", esempio = "nome prodotto", frase = "Inserisci il nome del prodotto che vuoi eliminare";
+            object input_eliminaprodotto = Interaction.InputBox(frase, titolo_input, esempio);
+            bool errore = true;
+
+            if ((string)input_eliminaprodotto == "") // user esce o lascia il campo vuoto
+            {
+                MessageBox.Show("Errore nella modifica del prodotto", "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else // se inserisce input "corretto"
+            {
+                for (int i = 0; i < dim; i++) // cerca il nome del prodotto nell'array
+                {
+                    if ((string)input_eliminaprodotto == nomiprodotti[i]) // prodotto trovato
+                    {
+                        CancellazioneFisica(i);
+                        errore = false;
+                        break;
+                    }
+                }
+
+                // se non trova nessun nome (input errato) allora lo segnala all'utente
+
+                if (errore == true)
+                {
+                    MessageBox.Show("Errore nella modifica del prodotto. Nome prodotto non esistente", "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
         }
     }
 }
