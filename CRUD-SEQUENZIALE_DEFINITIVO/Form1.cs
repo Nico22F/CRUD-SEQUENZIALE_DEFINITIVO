@@ -112,28 +112,36 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             {
                 string nome_temporaneo = (string)input_aggiungiprodotto; // salvo il nome in una variabile temporanea, verrà scritto nel file solo se il prezzo verrà scritto nel modo corretto
 
-                // input prezzo
-
-                titolo_input = "Modifica Prodotto - Prezzo"; frase = "Inserisci il prezzo del prodotto che vuoi modificare";
-                input_aggiungiprodotto = Interaction.InputBox(frase, titolo_input, PrezzoProdotto);
-                int prova_numero = 0; // se la conversione risultasse corretta (questa sotto) la stringa convertita in float finirebbe qua
-
-                // tryparse serve per vedere se la conversione funziona
-                if (!int.TryParse((string)input_aggiungiprodotto, out prova_numero))
+                if (nome_temporaneo[0] == '§') // non si può modificare un prodotto eliminato
                 {
-                    MessageBox.Show("Errore nell'aggiunta del prodotto", "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    
+                    MessageBox.Show("Errore nella modifica del prodotto. NON PUOI MODIFICARE UN PRODOTTO PRECEDENTEMENTE ELIMINATO", "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 }
-                else
+                else // se non è stato eliminato
                 {
-                    // se non da nessun errore, dim (posizione) aumenta e viene aggiunto il prodotto al file
+                    // input prezzo
 
-                    nomiprodotti[posizione] = nome_temporaneo;
+                    titolo_input = "Modifica Prodotto - Prezzo"; frase = "Inserisci il prezzo del prodotto che vuoi modificare";
+                    input_aggiungiprodotto = Interaction.InputBox(frase, titolo_input, PrezzoProdotto);
+                    int prova_numero = 0; // se la conversione risultasse corretta (questa sotto) la stringa convertita in float finirebbe qua
 
-                    // modifica del prodotto su file
-                    file.Close();
-                    br.Close();
-                    AggiungiProdotto((string)input_aggiungiprodotto, nome_temporaneo,posizione);
+                    // tryparse serve per vedere se la conversione funziona
+                    if (!int.TryParse((string)input_aggiungiprodotto, out prova_numero))
+                    {
+                        MessageBox.Show("Errore nell'aggiunta del prodotto", "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+                    else
+                    {
+                        // se non da nessun errore, dim (posizione) aumenta e viene aggiunto il prodotto al file
+
+                        nomiprodotti[posizione] = nome_temporaneo;
+
+                        // modifica del prodotto su file
+                        file.Close();
+                        br.Close();
+                        AggiungiProdotto((string)input_aggiungiprodotto, nome_temporaneo, posizione);
+                    }
                 }
             }
             file.Close();
@@ -571,7 +579,17 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             }
             else // se inserisce input "corretto"
             {
-                IndiceProdotto((string)input_ricercaprodotto);
+                string variabile_temporanea = (string)input_ricercaprodotto;
+
+                if (variabile_temporanea[0] == '§') // non si può cercare l'indice di un prodotto eliminato
+                {
+                    MessageBox.Show("Errore nella ricerca dell'indice del prodotto", "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                else
+                {
+                    IndiceProdotto((string)input_ricercaprodotto);
+                }
             }
         }
 

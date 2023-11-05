@@ -39,14 +39,15 @@
             this.annulla = new System.Windows.Forms.Button();
             this.titolo_elimina = new System.Windows.Forms.Label();
             this.trova_indice = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // aggiungi_prodotto
             // 
-            this.aggiungi_prodotto.Location = new System.Drawing.Point(16, 103);
+            this.aggiungi_prodotto.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aggiungi_prodotto.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.aggiungi_prodotto.Location = new System.Drawing.Point(12, 103);
             this.aggiungi_prodotto.Name = "aggiungi_prodotto";
-            this.aggiungi_prodotto.Size = new System.Drawing.Size(163, 76);
+            this.aggiungi_prodotto.Size = new System.Drawing.Size(358, 76);
             this.aggiungi_prodotto.TabIndex = 0;
             this.aggiungi_prodotto.Text = "AGGIUNGI PRODOTTO";
             this.aggiungi_prodotto.UseVisualStyleBackColor = true;
@@ -54,7 +55,9 @@
             // 
             // modifica_prodotto
             // 
-            this.modifica_prodotto.Location = new System.Drawing.Point(185, 103);
+            this.modifica_prodotto.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifica_prodotto.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.modifica_prodotto.Location = new System.Drawing.Point(196, 241);
             this.modifica_prodotto.Name = "modifica_prodotto";
             this.modifica_prodotto.Size = new System.Drawing.Size(181, 76);
             this.modifica_prodotto.TabIndex = 1;
@@ -64,7 +67,9 @@
             // 
             // elimina_prodotto
             // 
-            this.elimina_prodotto.Location = new System.Drawing.Point(185, 241);
+            this.elimina_prodotto.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.elimina_prodotto.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.elimina_prodotto.Location = new System.Drawing.Point(189, 367);
             this.elimina_prodotto.Name = "elimina_prodotto";
             this.elimina_prodotto.Size = new System.Drawing.Size(181, 76);
             this.elimina_prodotto.TabIndex = 2;
@@ -74,7 +79,9 @@
             // 
             // resetta_file
             // 
-            this.resetta_file.Location = new System.Drawing.Point(16, 241);
+            this.resetta_file.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetta_file.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.resetta_file.Location = new System.Drawing.Point(20, 241);
             this.resetta_file.Name = "resetta_file";
             this.resetta_file.Size = new System.Drawing.Size(163, 76);
             this.resetta_file.TabIndex = 3;
@@ -84,6 +91,8 @@
             // 
             // apri_file
             // 
+            this.apri_file.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apri_file.ForeColor = System.Drawing.Color.DodgerBlue;
             this.apri_file.Location = new System.Drawing.Point(12, 493);
             this.apri_file.Name = "apri_file";
             this.apri_file.Size = new System.Drawing.Size(358, 92);
@@ -95,20 +104,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Ivory;
+            this.label1.Location = new System.Drawing.Point(5, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(365, 20);
+            this.label1.Size = new System.Drawing.Size(341, 23);
             this.label1.TabIndex = 5;
             this.label1.Text = "CRUD CON ACCESSO SEQUENZIALE22F";
             // 
             // eliminazione_logica
             // 
             this.eliminazione_logica.AutoSize = true;
-            this.eliminazione_logica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminazione_logica.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminazione_logica.ForeColor = System.Drawing.Color.Azure;
             this.eliminazione_logica.Location = new System.Drawing.Point(82, 168);
             this.eliminazione_logica.Name = "eliminazione_logica";
-            this.eliminazione_logica.Size = new System.Drawing.Size(234, 29);
+            this.eliminazione_logica.Size = new System.Drawing.Size(259, 25);
             this.eliminazione_logica.TabIndex = 6;
             this.eliminazione_logica.Text = "Cancellazione logica";
             this.eliminazione_logica.UseVisualStyleBackColor = true;
@@ -117,10 +128,11 @@
             // eliminazione_fisica
             // 
             this.eliminazione_fisica.AutoSize = true;
-            this.eliminazione_fisica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminazione_fisica.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminazione_fisica.ForeColor = System.Drawing.Color.Azure;
             this.eliminazione_fisica.Location = new System.Drawing.Point(82, 241);
             this.eliminazione_fisica.Name = "eliminazione_fisica";
-            this.eliminazione_fisica.Size = new System.Drawing.Size(227, 29);
+            this.eliminazione_fisica.Size = new System.Drawing.Size(247, 25);
             this.eliminazione_fisica.TabIndex = 7;
             this.eliminazione_fisica.Text = "Cancellazione fisica";
             this.eliminazione_fisica.UseVisualStyleBackColor = true;
@@ -128,6 +140,8 @@
             // 
             // annulla
             // 
+            this.annulla.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.annulla.ForeColor = System.Drawing.Color.DodgerBlue;
             this.annulla.Location = new System.Drawing.Point(120, 323);
             this.annulla.Name = "annulla";
             this.annulla.Size = new System.Drawing.Size(140, 78);
@@ -139,16 +153,19 @@
             // titolo_elimina
             // 
             this.titolo_elimina.AutoSize = true;
-            this.titolo_elimina.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titolo_elimina.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titolo_elimina.ForeColor = System.Drawing.Color.Ivory;
             this.titolo_elimina.Location = new System.Drawing.Point(11, 14);
             this.titolo_elimina.Name = "titolo_elimina";
-            this.titolo_elimina.Size = new System.Drawing.Size(355, 29);
+            this.titolo_elimina.Size = new System.Drawing.Size(320, 31);
             this.titolo_elimina.TabIndex = 9;
             this.titolo_elimina.Text = "Scegli il tipo di cancellazione";
             // 
             // trova_indice
             // 
-            this.trova_indice.Location = new System.Drawing.Point(16, 361);
+            this.trova_indice.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trova_indice.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.trova_indice.Location = new System.Drawing.Point(20, 364);
             this.trova_indice.Name = "trova_indice";
             this.trova_indice.Size = new System.Drawing.Size(163, 82);
             this.trova_indice.TabIndex = 10;
@@ -156,21 +173,12 @@
             this.trova_indice.UseVisualStyleBackColor = true;
             this.trova_indice.Click += new System.EventHandler(this.trova_indice_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(185, 361);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 82);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Recupera Prodotto";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(382, 597);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.trova_indice);
             this.Controls.Add(this.titolo_elimina);
             this.Controls.Add(this.annulla);
@@ -203,7 +211,6 @@
         private System.Windows.Forms.Button annulla;
         private System.Windows.Forms.Label titolo_elimina;
         private System.Windows.Forms.Button trova_indice;
-        private System.Windows.Forms.Button button1;
     }
 }
 
