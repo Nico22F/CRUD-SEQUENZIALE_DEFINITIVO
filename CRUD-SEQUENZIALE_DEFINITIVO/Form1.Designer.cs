@@ -115,11 +115,11 @@
             // eliminazione_logica
             // 
             this.eliminazione_logica.AutoSize = true;
-            this.eliminazione_logica.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminazione_logica.Font = new System.Drawing.Font("Perpetua Titling MT", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eliminazione_logica.ForeColor = System.Drawing.Color.Azure;
-            this.eliminazione_logica.Location = new System.Drawing.Point(82, 168);
+            this.eliminazione_logica.Location = new System.Drawing.Point(9, 203);
             this.eliminazione_logica.Name = "eliminazione_logica";
-            this.eliminazione_logica.Size = new System.Drawing.Size(259, 25);
+            this.eliminazione_logica.Size = new System.Drawing.Size(344, 32);
             this.eliminazione_logica.TabIndex = 6;
             this.eliminazione_logica.Text = "Cancellazione logica";
             this.eliminazione_logica.UseVisualStyleBackColor = true;
@@ -128,11 +128,11 @@
             // eliminazione_fisica
             // 
             this.eliminazione_fisica.AutoSize = true;
-            this.eliminazione_fisica.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminazione_fisica.Font = new System.Drawing.Font("Perpetua Titling MT", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eliminazione_fisica.ForeColor = System.Drawing.Color.Azure;
-            this.eliminazione_fisica.Location = new System.Drawing.Point(82, 241);
+            this.eliminazione_fisica.Location = new System.Drawing.Point(9, 329);
             this.eliminazione_fisica.Name = "eliminazione_fisica";
-            this.eliminazione_fisica.Size = new System.Drawing.Size(247, 25);
+            this.eliminazione_fisica.Size = new System.Drawing.Size(326, 32);
             this.eliminazione_fisica.TabIndex = 7;
             this.eliminazione_fisica.Text = "Cancellazione fisica";
             this.eliminazione_fisica.UseVisualStyleBackColor = true;
@@ -142,9 +142,9 @@
             // 
             this.annulla.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.annulla.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.annulla.Location = new System.Drawing.Point(120, 323);
+            this.annulla.Location = new System.Drawing.Point(67, 468);
             this.annulla.Name = "annulla";
-            this.annulla.Size = new System.Drawing.Size(140, 78);
+            this.annulla.Size = new System.Drawing.Size(252, 117);
             this.annulla.TabIndex = 8;
             this.annulla.Text = "ANNULLA CANCELLAZIONE";
             this.annulla.UseVisualStyleBackColor = true;
@@ -153,11 +153,11 @@
             // titolo_elimina
             // 
             this.titolo_elimina.AutoSize = true;
-            this.titolo_elimina.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titolo_elimina.ForeColor = System.Drawing.Color.Ivory;
-            this.titolo_elimina.Location = new System.Drawing.Point(11, 14);
+            this.titolo_elimina.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titolo_elimina.ForeColor = System.Drawing.Color.Crimson;
+            this.titolo_elimina.Location = new System.Drawing.Point(-11, 22);
             this.titolo_elimina.Name = "titolo_elimina";
-            this.titolo_elimina.Size = new System.Drawing.Size(320, 31);
+            this.titolo_elimina.Size = new System.Drawing.Size(388, 38);
             this.titolo_elimina.TabIndex = 9;
             this.titolo_elimina.Text = "Scegli il tipo di cancellazione";
             // 
