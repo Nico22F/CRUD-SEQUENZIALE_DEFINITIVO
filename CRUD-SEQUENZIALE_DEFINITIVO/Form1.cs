@@ -194,7 +194,7 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             BinaryWriter bw = new BinaryWriter(file);
             BinaryReader br = new BinaryReader(file);
 
-            // copio la riga e aggiungo una @ davanti alla riga così da renderlo eliminato
+            // copio la riga e aggiungo una § davanti alla riga così da renderlo eliminato (teoricamente)
 
             br.BaseStream.Seek((posizione) * size, 0);
 
@@ -208,7 +208,7 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
 
 
             // riscrivo la riga
-            string rigaeliminata =$"@{nomeProdotto.PadRight(31)}@{PrezzoProdotto.PadRight(31)}";
+            string rigaeliminata =$"§{nomeProdotto.PadRight(31)}§{PrezzoProdotto.PadRight(31)}";
             byte[] strInByte = Encoding.Default.GetBytes(rigaeliminata);
             bw.BaseStream.Seek((posizione) * size, SeekOrigin.Begin);
             bw.Write(strInByte);
