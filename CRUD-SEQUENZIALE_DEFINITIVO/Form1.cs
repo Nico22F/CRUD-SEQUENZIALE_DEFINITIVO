@@ -152,7 +152,7 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             
             while(uscita == false) 
             {
-                br.BaseStream.Seek((dim) * size, 0);
+                br.BaseStream.Seek((dim) * size, 0); // all'inizio dim vale 0 (reset programma)
                 //nome prodotto
                 byte[] bit = br.ReadBytes(32);
                 nomeProdotto = Encoding.ASCII.GetString(bit, 0, bit.Length).Trim();
