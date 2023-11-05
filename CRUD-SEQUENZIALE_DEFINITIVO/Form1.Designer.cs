@@ -38,11 +38,13 @@
             this.eliminazione_fisica = new System.Windows.Forms.CheckBox();
             this.annulla = new System.Windows.Forms.Button();
             this.titolo_elimina = new System.Windows.Forms.Label();
+            this.trova_indice = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // aggiungi_prodotto
             // 
-            this.aggiungi_prodotto.Location = new System.Drawing.Point(122, 77);
+            this.aggiungi_prodotto.Location = new System.Drawing.Point(16, 103);
             this.aggiungi_prodotto.Name = "aggiungi_prodotto";
             this.aggiungi_prodotto.Size = new System.Drawing.Size(163, 76);
             this.aggiungi_prodotto.TabIndex = 0;
@@ -52,9 +54,9 @@
             // 
             // modifica_prodotto
             // 
-            this.modifica_prodotto.Location = new System.Drawing.Point(122, 159);
+            this.modifica_prodotto.Location = new System.Drawing.Point(185, 103);
             this.modifica_prodotto.Name = "modifica_prodotto";
-            this.modifica_prodotto.Size = new System.Drawing.Size(163, 76);
+            this.modifica_prodotto.Size = new System.Drawing.Size(181, 76);
             this.modifica_prodotto.TabIndex = 1;
             this.modifica_prodotto.Text = "MODIFICA PRODOTTO";
             this.modifica_prodotto.UseVisualStyleBackColor = true;
@@ -62,9 +64,9 @@
             // 
             // elimina_prodotto
             // 
-            this.elimina_prodotto.Location = new System.Drawing.Point(122, 241);
+            this.elimina_prodotto.Location = new System.Drawing.Point(185, 241);
             this.elimina_prodotto.Name = "elimina_prodotto";
-            this.elimina_prodotto.Size = new System.Drawing.Size(163, 76);
+            this.elimina_prodotto.Size = new System.Drawing.Size(181, 76);
             this.elimina_prodotto.TabIndex = 2;
             this.elimina_prodotto.Text = "ELIMINA PRODOTTO";
             this.elimina_prodotto.UseVisualStyleBackColor = true;
@@ -72,7 +74,7 @@
             // 
             // resetta_file
             // 
-            this.resetta_file.Location = new System.Drawing.Point(122, 323);
+            this.resetta_file.Location = new System.Drawing.Point(16, 241);
             this.resetta_file.Name = "resetta_file";
             this.resetta_file.Size = new System.Drawing.Size(163, 76);
             this.resetta_file.TabIndex = 3;
@@ -82,9 +84,9 @@
             // 
             // apri_file
             // 
-            this.apri_file.Location = new System.Drawing.Point(12, 420);
+            this.apri_file.Location = new System.Drawing.Point(12, 493);
             this.apri_file.Name = "apri_file";
-            this.apri_file.Size = new System.Drawing.Size(358, 165);
+            this.apri_file.Size = new System.Drawing.Size(358, 92);
             this.apri_file.TabIndex = 4;
             this.apri_file.Text = "VISUALIZZA FILE";
             this.apri_file.UseVisualStyleBackColor = true;
@@ -126,7 +128,7 @@
             // 
             // annulla
             // 
-            this.annulla.Location = new System.Drawing.Point(131, 297);
+            this.annulla.Location = new System.Drawing.Point(120, 323);
             this.annulla.Name = "annulla";
             this.annulla.Size = new System.Drawing.Size(140, 78);
             this.annulla.TabIndex = 8;
@@ -144,11 +146,32 @@
             this.titolo_elimina.TabIndex = 9;
             this.titolo_elimina.Text = "Scegli il tipo di cancellazione";
             // 
+            // trova_indice
+            // 
+            this.trova_indice.Location = new System.Drawing.Point(16, 361);
+            this.trova_indice.Name = "trova_indice";
+            this.trova_indice.Size = new System.Drawing.Size(163, 82);
+            this.trova_indice.TabIndex = 10;
+            this.trova_indice.Text = "TROVA INDICE PRODOTTO";
+            this.trova_indice.UseVisualStyleBackColor = true;
+            this.trova_indice.Click += new System.EventHandler(this.trova_indice_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(185, 361);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(181, 82);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Recupera Prodotto";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 597);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.trova_indice);
             this.Controls.Add(this.titolo_elimina);
             this.Controls.Add(this.annulla);
             this.Controls.Add(this.eliminazione_fisica);
@@ -179,6 +202,8 @@
         private System.Windows.Forms.CheckBox eliminazione_fisica;
         private System.Windows.Forms.Button annulla;
         private System.Windows.Forms.Label titolo_elimina;
+        private System.Windows.Forms.Button trova_indice;
+        private System.Windows.Forms.Button button1;
     }
 }
 

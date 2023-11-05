@@ -208,7 +208,7 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
 
 
             // riscrivo la riga
-            string rigaeliminata =$"@{nomeProdotto.PadRight(32)}@{PrezzoProdotto.PadRight(32)}";
+            string rigaeliminata =$"@{nomeProdotto.PadRight(31)}@{PrezzoProdotto.PadRight(31)}";
             byte[] strInByte = Encoding.Default.GetBytes(rigaeliminata);
             bw.BaseStream.Seek((posizione) * size, SeekOrigin.Begin);
             bw.Write(strInByte);
@@ -268,6 +268,34 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             br.Close();
         }
 
+        // funzione che trova l'indice di un prodotto nel file (in bit)
+
+        public void IndiceProdotto(string prodotto)
+        {
+            int indice = 0;
+            bool prodotto_trovato = false; // indica se i prodotto è stato trovato dall'utente
+
+            for (int i = 0; i < dim; i++)
+            {
+                if (prodotto == nomiprodotti[i]) // se sono uguali
+                {
+                    indice = i * 64;
+                    prodotto_trovato = true;
+                    break;
+                }
+            }
+
+
+            if (prodotto_trovato == false) // se è falso, l'input dell'utente è scorretto. Segnala errore
+            {
+                MessageBox.Show("Input errato. Il prodotto non esiste nella lista corrente", "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else // se è vero, indica l'indice
+            {
+                MessageBox.Show($"il {prodotto} si trova dal bit {indice} fino al bit {indice+63}");
+            }
+        }
 
         // array che conterrà i nomi e le posizioni
 
@@ -369,6 +397,7 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             elimina_prodotto.Visible = false;
             resetta_file.Visible = false;
             apri_file.Visible = false;
+            trova_indice.Visible = false;
 
             // rendo visibile le due scelte di cancellazione
 
@@ -415,6 +444,7 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             elimina_prodotto.Visible = true;
             resetta_file.Visible = true;
             apri_file.Visible = true;
+            trova_indice.Visible = true;
 
             // rendo invisibile le due scelte di cancellazione
 
@@ -434,6 +464,7 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             elimina_prodotto.Visible = true;
             resetta_file.Visible = true;
             apri_file.Visible = true;
+            trova_indice.Visible=true;
 
             // rendo invisibile le due scelte di cancellazione
 
@@ -485,6 +516,7 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
             elimina_prodotto.Visible = true;
             resetta_file.Visible = true;
             apri_file.Visible = true;
+            trova_indice.Visible = true;
 
             // rendo invisibile le due scelte di cancellazione
 
@@ -525,5 +557,23 @@ namespace CRUD_SEQUENZIALE_DEFINITIVO
                 }
             }
         }
+
+        // riferisce all'utente l'indice di un prodotto scelto da lui
+        private void trova_indice_Click(object sender, EventArgs e)
+        {
+            string titolo_input = "Ricerca indice prodotto - NOME", esempio = "nome prodotto", frase = "Inserisci il nome del prodotto di cui vuoi trovare l'indice";
+            object input_ricercaprodotto = Interaction.InputBox(frase, titolo_input, esempio);
+
+            if ((string)input_ricercaprodotto == "") // user esce o lascia il campo vuoto
+            {
+                MessageBox.Show("Errore nella ricerca dell'indice del prodotto", "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else // se inserisce input "corretto"
+            {
+                IndiceProdotto((string)input_ricercaprodotto);
+            }
+        }
+
     }
 }
